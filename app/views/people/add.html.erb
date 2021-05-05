@@ -2,22 +2,23 @@
 <p><%= @msg %></p>
 <pre>
 <table>
-    <form method="post" action="/people/add">
+    <%= form_for(@person, url:{controller:'people', action:'create'}) do |form| %>
     <tr>
         <th>Name</th>
-        <td><input type="text" name="name"></td>
+        <td><%= form.text_field :new %></td>
     </tr>
     <tr>
         <th>Age</th>
-        <td><input type="text" name="age"></td>
+        <td><%= form.text_field :age %></td>
     </tr>
     <tr>
         <th>Mail</th>
-        <td><input type="text" name="mail"></td>
+        <td><%= form.text_field :mail %></td>
     </tr>
     <tr>
-        <td><input type="submit"></td>
+        <th></th>
+        <td><%= form.submit "送信" %></td>
     </tr>
-    </form>
+    <% end %>
 </table>
 </pre>

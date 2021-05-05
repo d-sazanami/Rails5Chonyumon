@@ -11,19 +11,19 @@ class PeopleController < ApplicationController
 
   def add
     @msg = "add new data."
+    @person = Person.new
   end
-
-  protect_from_forgery
 
   def create
     if request.post? then
-      obj = Person.create(
-        new: params['name'],
-        age: params['age'],
-        mail: params['mail']
-      )
+      obj = Person.create(person_params)
     end
     redirect_to '/people'
+  end
+
+  private
+  def person_params
+    params.require(:person).permit(:new, :age, :mail)
   end
 
 end
