@@ -7,7 +7,7 @@
     <% @cards.each do |obj| %>
     <tr>
         <td width="35px"><%= obj.id %></td>
-        <td width="50px"><a href="/cards/<%= obj.id %>"><%= obj.title%>>/a></td>
+        <td width="50px"><a href="/cards/<%= obj.id %>"><%= obj.title%></a></td>
         <td><%= obj.author %></td>
         <td width="40px"><a href="/cards/edit/<%= obj.id %>">編集</a></td>
         <td width="40px">
