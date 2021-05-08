@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   patch 'cards/edit/:id', to: 'cards#edit'
   get 'cards/delete/:id', to: 'cards#delete'
 
+  get 'people/find'
+  post 'people/find'
   get 'people/index'
   get 'people/', to:'people#index'
   get 'people/add'
