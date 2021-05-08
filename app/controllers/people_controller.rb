@@ -44,10 +44,8 @@ class PeopleController < ApplicationController
     @msg = 'please type search word...'
     @people = Array.new
     if request.post? then
-      f = '%' + params[:find] + '%'
-      result = Person.where "new like ? or mail like ?", f, f
-      @people.push result.first
-      @people.push result.last
+      f = params[:find].split(',')
+      @people = Person.find(f)
     end
   end
 
