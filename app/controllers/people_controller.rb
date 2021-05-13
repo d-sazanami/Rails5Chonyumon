@@ -21,15 +21,6 @@ class PeopleController < ApplicationController
     if @person.save then
       redirect_to '/people'
     else
-      re = ''
-      @person.errors.messages.each do |key, vals|
-
-        vals.each do |val|
-        re += '<span style="color:red">' + key.to_s + '</span>' + val + '<br>'
-        end
-
-      end
-      @msg = re.html_safe
       render 'add'
     end
   end
