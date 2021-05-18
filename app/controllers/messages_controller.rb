@@ -26,8 +26,8 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    @msg = "edit data.[id = " + params[id] + "]"
-    @message = Message.find(param[:id])
+    @msg = "edit data.[id = " + params[:id] + "]"
+    @message = Message.find(params[:id])
   end
 
   def update

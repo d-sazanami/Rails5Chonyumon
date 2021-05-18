@@ -8,10 +8,10 @@
 </ul>
 <% end %>
 <table>
-    <%= form_for(@message, url:{controller:'message', action:'update', id:@message.id}) do |form| %>
+    <%= form_for(@message, url:{controller:'messages', action:'update', id:@message.id}) do |form| %>
     <tr>
         <th>Person ID</th>
-        <td><%= form.file_field :person_id %></td>
+        <td><%= form.text_field :person_id %></td>
     </tr>
     <tr>
         <th>Title</th>
@@ -19,10 +19,11 @@
     </tr>
     <tr>
         <th>Message</th>
-        <td><%= form.text_area :mesage, {cols:30, rows:3} %></td>
+        <td><%= form.text_area :message, {cols:30, rows:3} %></td>
     </tr>
     <tr>
-        <tr></tr>
+        <th></th>
         <td><%= form.submit "送信" %></td>
     </tr>
+    <% end %>
 </table>
