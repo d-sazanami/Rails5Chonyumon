@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #patch 'messages/edit/:id', to: 'messages#update'
 
   #get 'messages/delete/:id', to: 'messages#delete'
-  #get 'messages/:id', to: 'messages#show'
+  get 'messages/:id', to: 'messages#show'
 
   get 'cards/index'
   get 'cards', to: 'cards#index'
