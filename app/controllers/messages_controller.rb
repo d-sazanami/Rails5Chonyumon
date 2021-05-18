@@ -36,6 +36,13 @@ class MessagesController < ApplicationController
     redirect_to '/messages'
   end
 
+  def delete
+    obj = Message.find(params[:id])
+    obj.destroy
+    redirect_to '/messages'
+  end
+
+
   private
   def message_params
     params.require(:message).permit(:person_id, :title, :message)
