@@ -12,12 +12,12 @@ class MessagesController < ApplicationController
 
   def add
     @msg = 'Message data.'
-    @mesage = Message.new
+    @message = Message.new
   end
 
   def create
-    @messae =  Message.new message_params
-    if Message.new message_pareams
+    @message =  Message.new message_params
+    if @message.save message_params
       redirect_to '/messages'
     else
       render 'add'

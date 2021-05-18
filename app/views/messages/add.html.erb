@@ -8,7 +8,7 @@
 </ul>>
 <% end %>
 <table>
-    <%= form_for(@message, url:{controller:'messages', action:'create'}) %>
+    <%= form_for(@message, url:{controller:'messages', action:'create'}) do |form| %>
     <tr>
         <th>person ID</th>
         <td>
