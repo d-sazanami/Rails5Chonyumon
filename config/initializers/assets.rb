@@ -24,3 +24,5 @@ Rails.application.config.assets.precompile += %w(messages.js)
 Rails.application.config.assets.precompile += %w(blogconfigs.css)
 Rails.application.config.assets.precompile += %w(blogconfigs.js)
 
+Rails.application.config.assets.precompile += %w(bloggenres.css)
+Rails.application.config.assets.precompile += %w(bloggenres.js)

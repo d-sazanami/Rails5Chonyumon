@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'bloggenres/index'
+  get 'bloggenres', to: 'blogenres#index'
+
 
   get 'blogconfigs/index'
   get 'blogconfigs', to: 'blogconfigs#index'
