@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'blogconfigs/index'
   get 'blogconfigs', to: 'blogconfigs#index'
 
+  get 'blogconfigs/edit'
+  patch 'blogconfigs/edit'
+
   get 'messages/index'
   get 'messages', to:'messages#index'
 
