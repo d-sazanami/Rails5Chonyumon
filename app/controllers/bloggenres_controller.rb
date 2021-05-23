@@ -13,6 +13,13 @@ class BloggenresController < ApplicationController
     end
   end
 
+  def edit
+    @bloggenre = Bloggenre.find params[:id]
+    if request.patch? then
+      @bloggenre.update bloggenre_params
+      redirect_to '/bloggenres'
+    end
+  end
 
   private
   def bloggenre_params
