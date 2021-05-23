@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'blogs/show/:id', to: 'blogs#show'
 
   get 'blogposts/index'
   get 'blogposts', to: 'blogposts#index'
