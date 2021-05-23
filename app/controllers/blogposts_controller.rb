@@ -7,7 +7,7 @@ class BlogpostsController < ApplicationController
 
   def add
     @blogpost = Blogpost.new
-    @genre = Bloggenre.all
+    @genres = Bloggenre.all
     if request.post? then
       @blogpost = Blogpost.create blogposts_params
       redirect_to '/blogposts'
