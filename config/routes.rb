@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'blogs/genre/:id', to: 'blogs#genre'
+  get 'blogs/genre/:id/:page', to: 'blogs#genre'
+
   get 'blogs/show/:id', to: 'blogs#show'
 
   get 'blogposts/index'
