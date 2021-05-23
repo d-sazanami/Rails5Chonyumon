@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   get 'blogposts/index'
   get 'blogposts', to: 'blogposts#index'
 
+  get 'blogposts/delete/:id', to: 'blogposts#delete'
+  post 'blogposts/delete/', to: 'blogposts#delete'
+  post 'blogposts/delete/:id', to: 'blogposts#delete'
+
   get 'blogposts/add'
   post 'blogposts/add'
 
