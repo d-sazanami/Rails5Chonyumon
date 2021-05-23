@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'blogposts/add'
   post 'blogposts/add'
 
+  get 'blogposts/:id', to: 'blogposts#edit'
+  patch 'blogposts/:id', to: 'blogposts#edit'
+
   get 'bloggenres/index'
   get 'bloggenres', to: 'bloggenres#index'
 

@@ -16,7 +16,7 @@ class BlogpostsController < ApplicationController
 
   def edit
     @blogpost = Blogpost.find params[:id]
-    @genre = Bloggenre.all
+    @genres = Bloggenre.all
     if request.patch? then
       @blogpost.update blogposts_params
       redirect_to '/blogposts'
