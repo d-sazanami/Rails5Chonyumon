@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :questions
   resources :mycontacts
   get 'blogs/index'
   get 'blogs', to: 'blogs#index'
