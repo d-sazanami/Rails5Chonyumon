@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+  layout 'people'
+
   def index
     @msg = 'Person data'
     @data = Person.all
@@ -15,10 +17,12 @@ class PeopleController < ApplicationController
   end
 
   def create
-    if request.post? then
-      obj = Person.create(person_params)
+    @person = Person.new person_params
+    if @person.save then
+      redirect_to '/people'
+    else
+      render 'add'
     end
-    redirect_to '/people'
   end
 
   def edit
@@ -38,6 +42,16 @@ class PeopleController < ApplicationController
     redirect_to '/people'
   end
 
+  def find
+    @msg = 'please type search word...'
+    @people = Array.new
+    if request.post? then
+      f = params[:find].split(',')
+      @people = Person.where('new like ?', '%' + params[:find] + '%').order 'age asc'
+    end
+  end
+
+  # -------------------------------------------------------
   private
   def person_params
     params.require(:person).permit(:new, :age, :mail)
