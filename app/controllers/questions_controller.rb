@@ -1,34 +1,32 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[ show edit update destroy ]
+  before_action :set_question, only: [ :show, :edit, :update, :destroy ]
+  layout 'questions'
 
-  # GET /questions or /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.all.order created_at: :desc
   end
 
-  # GET /questions/1 or /questions/1.json
   def show
+    @answer = Answer.new
+    @answer.question_id = params[:id]
   end
 
-  # GET /questions/new
   def new
     @question = Question.new
   end
 
-  # GET /questions/1/edit
   def edit
+    redirect_to '/questions'
   end
 
-  # POST /questions or /questions.json
   def create
     @question = Question.new(question_params)
-
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: "Question was successfully created." }
+        format.html { redirect_to '/questions'}
         format.json { render :show, status: :created, location: @question }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
@@ -36,24 +34,12 @@ class QuestionsController < ApplicationController
 
   # PATCH/PUT /questions/1 or /questions/1.json
   def update
-    respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to @question, notice: "Question was successfully updated." }
-        format.json { render :show, status: :ok, location: @question }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to '/questions'
   end
 
   # DELETE /questions/1 or /questions/1.json
   def destroy
-    @question.destroy
-    respond_to do |format|
-      format.html { redirect_to questions_url, notice: "Question was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to '/questions'
   end
 
   private

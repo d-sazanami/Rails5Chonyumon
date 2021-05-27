@@ -1,24 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
+<h1>質問と回答</h1>
 
-<p>
-  <strong>Content:</strong>
-  <%= @question.content %>
-</p>
+<div class-"question">
+  <h2 class="title">
+    <%= @question.title %>
+  </h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @question.name %>
-</p>
+  <p class="content">
+    <%= @question.content %>
+  </p>
 
-<p>
-  <strong>Finished:</strong>
-  <%= @question.finished %>
-</p>
+  <p class="q_name">
+    <%= @question.name %>
+  </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+  <span class="<%= @question.finished ? 'finished' : 'not finished' %>">
+    <%= @question.finished ? '終了' : '受付中' %>
+  </span>
+</div>
+
+<% if @question.finished? == false then  %>
+  <div class="answer_form">
+    <h2>※回答する</h2>
+    <%= render 'form2', answer: @answer %>
+  </div>
+<% end %>
+
+<h2>※これまで寄せられた回答</h2>
+
+
+<% if @question.answer.count == 0 then %>
+  <p class="answer">※まだありません。</p>
+<% else %>
+  <% @question.answer.reverse_each do |re| %>
+    <p class="answer">
+      <%= re.content + '(' + re.name + ')' %>
+    </p>
+  <% end %>
+<% end %>
