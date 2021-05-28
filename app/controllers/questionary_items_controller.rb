@@ -13,6 +13,8 @@ class QuestionaryItemsController < ApplicationController
   # GET /questionary_items/new
   def new
     @questionary_item = QuestionaryItem.new
+    @questionary_item.questionary_id = params[:id]
+    @Questionary = Questionary.find params[:id]
   end
 
   # GET /questionary_items/1/edit
@@ -25,10 +27,10 @@ class QuestionaryItemsController < ApplicationController
 
     respond_to do |format|
       if @questionary_item.save
-        format.html { redirect_to @questionary_item, notice: "Questionary item was successfully created." }
+        format.html { redirect_to '/questionary_choices/new/' + @questionary_item.id.to_s }
         format.json { render :show, status: :created, location: @questionary_item }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @questionary_item.errors, status: :unprocessable_entity }
       end
     end
