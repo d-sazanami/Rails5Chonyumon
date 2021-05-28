@@ -25,10 +25,10 @@ class QuestionariesController < ApplicationController
 
     respond_to do |format|
       if @questionary.save
-        format.html { redirect_to @questionary, notice: "Questionary was successfully created." }
+        format.html { redirect_to '/questionary_items/new/' + @questionary.id.to_s }
         format.json { render :show, status: :created, location: @questionary }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @questionary.errors, status: :unprocessable_entity }
       end
     end
