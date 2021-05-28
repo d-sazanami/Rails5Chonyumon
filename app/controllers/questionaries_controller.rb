@@ -3,7 +3,7 @@ class QuestionariesController < ApplicationController
 
   # GET /questionaries or /questionaries.json
   def index
-    @questionaries = Questionary.all
+    @questionaries = Questionary.all.order('created_at desc')
   end
 
   # GET /questionaries/1 or /questionaries/1.json
