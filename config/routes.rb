@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  get 'questionary_choices/new/:id', to: 'questionary_choices#new'
   get 'questionary_items/new/:id', to: 'questionary_items#new'
-  get 'questionary_choices/new/:id', to: 'questionary_choics#new'
 
   resources :questionary_results
   resources :questionary_choices
