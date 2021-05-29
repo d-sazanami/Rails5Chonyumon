@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Questionary:</strong>
-  <%= @questionary_result.questionary_id %>
-</p>
+<h1><%= @questionary.title %></h1>
 
-<p>
-  <strong>Result:</strong>
-  <%= @questionary_result.result %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Result</th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_questionary_result_path(@questionary_result) %> |
-<%= link_to 'Back', questionary_results_path %>
+  <tbody>
+    <% @questionary_results.each do |result| %>
+      <tr>
+        <td><%= result.result %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<a href="/questionary_results/calc/<%= @questionary.id %>">Calc data</a>
