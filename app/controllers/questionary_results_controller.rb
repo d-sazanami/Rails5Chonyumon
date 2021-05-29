@@ -3,7 +3,7 @@ class QuestionaryResultsController < ApplicationController
 
   # GET /questionary_results or /questionary_results.json
   def index
-    @questionary_results = QuestionaryResult.all
+    @questionaries = Questionary.all
   end
 
   # GET /questionary_results/1 or /questionary_results/1.json
