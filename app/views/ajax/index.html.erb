@@ -1,5 +1,18 @@
 <h1>Ajax#index</h1>
-<p id="ajax">jQueryは動作していません。</p>
-<script>
-    $('#ajax').text('jQueryは、動作しています！')
-</script>
+<table>
+    <tr>
+        <th>ID</th>
+        <td id="id"></td>
+    </tr>
+    <tr>
+        <th>NAME</th>
+        <td id="name"></td>
+    </tr>
+    <tr>
+        <th>MAIL</th>
+        <td id="mail"></td>
+    </tr>
+</table>
+
+<br>
+<%= link_to 'link by Ajax', {action:'data'}, remote:true %>
