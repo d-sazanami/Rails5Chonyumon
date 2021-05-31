@@ -1,18 +1,16 @@
 <h1>Ajax#index</h1>
 <table>
-    <tr>
-        <th>ID</th>
-        <td id="id"></td>
-    </tr>
+    <%= form_tag({controller:'ajax', action:'data'}, remote:true) do %>
     <tr>
         <th>NAME</th>
-        <td id="name"></td>
+        <td id="name"><%= text_field_tag :name %></td>
     </tr>
     <tr>
-        <th>MAIL</th>
-        <td id="mail"></td>
+        <th></th>
+        <td><%= submit_tag "送信" %></td>
     </tr>
+    <% end %>
 </table>
 
-<br>
-<%= link_to 'link by Ajax', {action:'data'}, remote:true %>
+<hr>
+<table id="result"></table>
