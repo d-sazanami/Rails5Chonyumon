@@ -1,16 +1,14 @@
 <h1>Ajax#index</h1>
-<table>
-    <%= form_tag({controller:'ajax', action:'data'}, remote:true) do %>
-    <tr>
-        <th>NAME</th>
-        <td id="name"><%= text_field_tag :name %></td>
-    </tr>
-    <tr>
-        <th></th>
-        <td><%= submit_tag "送信" %></td>
-    </tr>
-    <% end %>
-</table>
-
+<p>※AjaxによるYahoo!ニュースのヘッドライン取得のサンプル。</p>
 <hr>
-<table id="result"></table>
+<div id="result">no information...</div>
+<script>
+var f = function() {
+    $.ajax({
+        type: 'GET',
+        url: '/ajax/data'
+    });
+};
+setTimeout(f, 600000);
+f();
+</script>

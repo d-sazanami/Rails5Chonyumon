@@ -1,9 +1,9 @@
 var data = <%= @data %>;
-var result = '';
-data.forEach(function(e){
-    result += '<tr><td><table>';
-    result += '<tr><th>NAME</th><td>' + e.new + '(' + e.age + ')' + '</td></tr>';
-    result += '<tr><th>MAIL</th><td>' + e.mail + '</td></tr>';
-    result += '</table></td></tr>';
+var result = '<table class="info">';
+result += '<tr><th class="title"' + data.rss.channel.title + '</th></tr>';
+result += '<tr><td class="desc">' + data.rss.channel.description + '</td></tr>';
+data.rss.channel.item.forEach(function(e){
+    result += '<tr><td class="item"><a href="' + e.link + 'i" target_="blank">' + e.title + '</a></td></tr>';
 });
+result += '<table>'
 $('#result').html(result);
