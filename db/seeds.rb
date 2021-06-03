@@ -1,5 +1,6 @@
-Person.create(new:'Taro', age:38, mail:'taro@yamada')
-Person.create(new:'Hanako', age:34, mail:'hanako@folower')
-Person.create(new:'sachiko', age:55, mail:'sachiko@happy')
+data = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'zero',
+  'white', 'black', 'gray', 'red', 'blue', 'green', 'yellow', 'cyan', 'mahrnta']
 
-Blogconfig.create(id:1, title:'my blog', subtitle:'サンプルで作ったブログです', stylename:'gray')
+  for i in 1..100 do
+    DataPage.create data:data.sample
+  end
