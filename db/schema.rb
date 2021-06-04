@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_024609) do
+ActiveRecord::Schema.define(version: 2021_06_04_063616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,21 @@ ActiveRecord::Schema.define(version: 2021_06_03_024609) do
     t.text "read"
     t.text "content"
     t.integer "bloggenre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "board_messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "board_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "board_users", force: :cascade do |t|
+    t.text "nickname"
+    t.string "account_id"
+    t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
