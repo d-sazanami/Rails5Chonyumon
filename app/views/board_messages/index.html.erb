@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Board Messages</h1>
-
-<table>
+<h1>Messages Board</h1>
+<%= render 'form', board_message: @board_message %>
+<p><%= link_to 'go home >>', controller: :board_users %></p>
+<hr>
+<h2>※Posted Messages.</h2>
+<table width="90%">
   <thead>
     <tr>
       <th>Content</th>
-      <th>Board user</th>
-      <th colspan="3"></th>
+      <th width="150px">Board user</th>
     </tr>
   </thead>
 
@@ -15,15 +17,12 @@
     <% @board_messages.each do |board_message| %>
       <tr>
         <td><%= board_message.content %></td>
-        <td><%= board_message.board_user_id %></td>
-        <td><%= link_to 'Show', board_message %></td>
-        <td><%= link_to 'Edit', edit_board_message_path(board_message) %></td>
-        <td><%= link_to 'Destroy', board_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to board_message.board_user.nickname, controller: :board_users, action: :show, id:board_message.board_user_id %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'New Board Message', new_board_message_path %>
+<div><%= paginate @board_messages %></div>
+<hr>
+<div>copyright</div>
