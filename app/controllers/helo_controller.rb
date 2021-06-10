@@ -1,13 +1,13 @@
 class HeloController < ApplicationController
+  layout 'application'
+  before_action :authenticate_account!, only: :login_check
 
   def index
-    @header = 'layout sample'
-    @footer = 'copytight SYODA-Tuyano 2016.'
-    @title = 'New Layout'
-    @msg = 'this is sample page!'
+    @msg = 'this is sample page.'
   end
 
-  def other
-    redirect_to action: :index, params: {'msg': 'from other page'}
+  def login_check
+    @account = current_account
+    # @msg = 'you logined at:' + @account.created_at.to_s
   end
 end
